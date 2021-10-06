@@ -1,10 +1,10 @@
 # About
-The Moore.io UVM Reset Agent is a simple but necessary component to all UVM test benches.
+The Moore.io UVM Register Abstraction Layer Library.
 
 # IP
 * [Download latest release (.tgz)](Todo)
 * [View latest documentation](Todo)
-* [Browse code](https://github.com/Datum-Technology-Corporation/uvma_reset)
+* [Browse code](https://github.com/Datum-Technology-Corporation/uvml_ral)
 
 # Metrics
 ## Stability
@@ -14,12 +14,10 @@ Todo
 Todo
 
 # Management
-* [Issues](https://github.com/Datum-Technology-Corporation/uvma_reset/issues)
-* [Wiki](https://github.com/Datum-Technology-Corporation/uvma_reset/wiki)
-* [Discussions](https://github.com/Datum-Technology-Corporation/uvma_reset/discussions)
-* [Projects](https://github.com/Datum-Technology-Corporation/uvma_reset/projects)
-> * [uvma_reset](https://github.com/Datum-Technology-Corporation/uvma_reset/projects/1)
-> * [uvme_reset_st](https://github.com/Datum-Technology-Corporation/uvma_reset/projects/2)
-> * [uvmt_reset_st](https://github.com/Datum-Technology-Corporation/uvma_reset/projects/3)
+* [Issues](https://github.com/Datum-Technology-Corporation/uvml_ral/issues)
+* [Wiki](https://github.com/Datum-Technology-Corporation/uvml_ral/wiki)
+* [Discussions](https://github.com/Datum-Technology-Corporation/uvml_ral/discussions)
+* [Projects](https://github.com/Datum-Technology-Corporation/uvml_ral/projects)
+> * [uvml_ral](https://github.com/Datum-Technology-Corporation/uvml_ral/projects/1)
 * Regressions
 > * Todo
