@@ -1,10 +1,10 @@
 # About
-The Moore.io UVM Register Abstraction Layer Library.
+The Moore.io UVM Register Abstraction Layer Extensions Library is an excellent base on which to build your register models.  This project consists solely of the library (`uvml_ral_pkg`) for the time being.
 
 # IP
 * [Download latest release (.tgz)](Todo)
 * [View latest documentation](Todo)
-* [Browse code](https://github.com/Datum-Technology-Corporation/uvml_ral)
+* [Browse code](https://github.com/Datum-Technology-Corporation/uvml_ral/tree/main/dv/uvml_ral)
 
 # Metrics
 ## Stability
