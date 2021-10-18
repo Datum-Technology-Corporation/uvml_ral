@@ -52,6 +52,7 @@ package uvme_ral_st_pkg;
    
    // Environment components
    `include "uvme_ral_st_cov_model.sv"
+   `include "uvme_ral_st_seq_item_logger.sv"
    `include "uvme_ral_st_sqr.sv"
    `include "uvme_ral_st_env.sv"
    

@@ -25,8 +25,9 @@ class uvme_ral_st_env_c extends uvml_env_c;
    uvme_ral_st_cntxt_c  cntxt; ///< 
    
    // Components
-   uvme_ral_st_cov_model_c  cov_model; ///< 
-   uvme_ral_st_sqr_c        sequencer; ///< 
+   uvme_ral_st_cov_model_c        cov_model      ; ///< 
+   uvme_ral_st_sqr_c              sequencer      ; ///< 
+   uvme_ral_st_seq_item_logger_c  seq_item_logger; ///< 
    
    // Register Abstraction Layer
    uvme_ral_st_reg_adapter_c  reg_adapter; ///< 
@@ -96,6 +97,11 @@ class uvme_ral_st_env_c extends uvml_env_c;
    extern virtual function void connect_reg_block();
    
    /**
+    * TODO Describe uvme_ral_st_env_c::connect_trn_loggers()
+    */
+   extern function void connect_trn_loggers();
+   
+   /**
     * Connects environment coverage model to agents/scoreboards/predictor.
     */
    extern function void connect_coverage_model();
@@ -152,6 +158,9 @@ function void uvme_ral_st_env_c::connect_phase(uvm_phase phase);
    
    if (cfg.enabled) begin
       connect_reg_block();
+      if (cfg.trn_log_enabled) begin
+         connect_trn_loggers();
+      end
       if (cfg.cov_model_enabled) begin
          connect_coverage_model();
       end
@@ -176,7 +185,9 @@ endfunction: assign_cntxt
 
 function void uvme_ral_st_env_c::create_env_components();
    
-   
+   if (cfg.trn_log_enabled) begin
+      seq_item_logger = uvme_ral_st_seq_item_logger_c::type_id::create("seq_item_logger", this);
+   end
    
 endfunction: create_env_components
 
@@ -211,6 +222,13 @@ function void uvme_ral_st_env_c::connect_reg_block();
    reg_block.default_map.set_auto_predict(1);
    
 endfunction: connect_reg_block
+
+
+function void uvme_ral_st_env_c::connect_trn_loggers();
+   
+   sequencer.ap.connect(seq_item_logger.analysis_export);
+   
+endfunction : connect_trn_loggers
 
 
 function void uvme_ral_st_env_c::connect_coverage_model();
