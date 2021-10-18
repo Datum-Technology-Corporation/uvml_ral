@@ -18,6 +18,7 @@
 `include "uvm_macros.svh"
 `include "uvml_macros.sv"
 `include "uvml_logs_macros.sv"
+`include "uvml_ral_macros.sv"
 `include "uvme_ral_st_macros.sv"
 
 // Interface(s)
@@ -32,6 +33,7 @@ package uvme_ral_st_pkg;
    import uvm_pkg      ::*;
    import uvml_pkg     ::*;
    import uvml_logs_pkg::*;
+   import uvml_ral_pkg ::*;
    
    // Constants / Structs / Enums
    `include "uvme_ral_st_tdefs.sv"
@@ -45,7 +47,7 @@ package uvme_ral_st_pkg;
    // Objects
    `include "uvme_ral_st_cfg.sv"
    `include "uvme_ral_st_cntxt.sv"
-   `include "uvme_ral_st_seq_item"
+   `include "uvme_ral_st_seq_item.sv"
    `include "uvme_ral_st_reg_adapter.sv"
    
    // Environment components

@@ -17,7 +17,7 @@
 /**
  * Component on which all the Moore.io Register Abstraction Layer UVM Extensions Self-Test sequences are run.
  */
-class uvme_ral_st_sqr_c extends uvm_sqr_c #(
+class uvme_ral_st_sqr_c extends uvml_sqr_c #(
    .REQ(uvme_ral_st_seq_item_c),
    .RSP(uvme_ral_st_seq_item_c)
 );
@@ -82,7 +82,7 @@ endfunction : build_phase
 
 task uvme_ral_st_sqr_c::run_phase(uvm_phase phase);
    
-   uvme_logs_st_seq_item_c  seq_item;
+   uvme_ral_st_seq_item_c  seq_item;
    
    super.run_phase(phase);
    

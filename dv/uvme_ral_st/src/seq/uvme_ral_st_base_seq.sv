@@ -20,8 +20,8 @@
  * the Moore.io Register Abstraction Layer UVM Extensions Virtual Sequencer (uvme_ral_st_vsqr_c) instance.
  */
 class uvme_ral_st_base_seq_c extends uvml_seq_c #(
-   .REQ(uvme_ral_st_seq_iem_c),
-   .RSP(uvme_ral_st_seq_iem_c)
+   .REQ(uvme_ral_st_seq_item_c),
+   .RSP(uvme_ral_st_seq_item_c)
 );
    
    // Environment handles

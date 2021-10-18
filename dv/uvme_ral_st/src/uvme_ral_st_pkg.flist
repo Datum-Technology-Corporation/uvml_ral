@@ -14,6 +14,7 @@
 +incdir+${DV_UVME_RAL_ST_SRC_PATH}
 +incdir+${DV_UVME_RAL_ST_SRC_PATH}/comps
 +incdir+${DV_UVME_RAL_ST_SRC_PATH}/obj
++incdir+${DV_UVME_RAL_ST_SRC_PATH}/reg
 +incdir+${DV_UVME_RAL_ST_SRC_PATH}/seq
 
 // Files

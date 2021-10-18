@@ -14,10 +14,6 @@
 `define __UVME_RAL_ST_TDEFS_SV__
 
 
-// Scoreboard specialization
-typedef uvml_sb_simplex_c#(
-   .T_TRN(uvma_ral_mon_trn_c)
-) uvme_ral_st_sb_simplex_c;
 
 
 `endif // __UVME_RAL_ST_TDEFS_SV__

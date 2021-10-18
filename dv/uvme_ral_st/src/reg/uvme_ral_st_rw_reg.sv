@@ -17,12 +17,12 @@
 /**
  * TODO Describe uvme_ral_st_rw_reg_c
  */
-class uvme_ral_st_rw_reg_c extends uvml_reg_c;
+class uvme_ral_st_rw_reg_c extends uvml_ral_reg_c;
    
    // Register fields
-   rand uvml_reg_field_c  field_x;
-   rand uvml_reg_field_c  field_y;
-   rand uvml_reg_field_c  field_z;
+   rand uvml_ral_reg_field_c  field_x; //< 
+   rand uvml_ral_reg_field_c  field_y; //< 
+   rand uvml_ral_reg_field_c  field_z; //< 
    
    
    `uvm_object_utils_begin(uvme_ral_st_rw_reg_c)
@@ -54,7 +54,7 @@ endfunction : new
 
 function void uvme_ral_st_rw_reg_c::build();
    
-   field_x = uvml_reg_field_c::type_id::create("field_x");
+   field_x = uvml_ral_reg_field_c::type_id::create("field_x");
    field_x.configure(
       .parent                 (this),
       .size                   (   1),
@@ -67,7 +67,7 @@ function void uvme_ral_st_rw_reg_c::build();
       .individually_accessible(   1)
    );
    
-   field_y = uvml_reg_field_c::type_id::create("field_y");
+   field_y = uvml_ral_reg_field_c::type_id::create("field_y");
    field_y.configure(
       .parent                 (this),
       .size                   (   8),
@@ -80,7 +80,7 @@ function void uvme_ral_st_rw_reg_c::build();
       .individually_accessible(   1)
    );
    
-   field_z = uvml_reg_field_c::type_id::create("field_z");
+   field_z = uvml_ral_reg_field_c::type_id::create("field_z");
    field_z.configure(
       .parent                 (this),
       .size                   (  23),

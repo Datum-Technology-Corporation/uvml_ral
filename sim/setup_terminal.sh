@@ -39,6 +39,7 @@ alias dvm="${TOOLS_DVM_SRC_PATH}/dvm.py"
 ### DV ###
 # Local
 export DV_UVML_RAL_SRC_PATH=${PROJECT_DV_DIR}/uvml_ral/src
+export DV_UVME_RAL_ST_SRC_PATH=${PROJECT_DV_DIR}/uvme_ral_st/src
 export DV_UVMT_RAL_ST_SRC_PATH=${PROJECT_DV_DIR}/uvmt_ral_st/src
 
 # Imports

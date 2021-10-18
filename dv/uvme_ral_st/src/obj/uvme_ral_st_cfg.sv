@@ -27,7 +27,7 @@ class uvme_ral_st_cfg_c extends uvml_cfg_c;
    rand bit                      trn_log_enabled  ; ///< 
    
    // Objects
-   rand uvme_logs_st_reg_block_c  reg_block;
+   rand uvme_ral_st_reg_block_c  reg_block;
    
    
    `uvm_object_utils_begin(uvme_ral_st_cfg_c)

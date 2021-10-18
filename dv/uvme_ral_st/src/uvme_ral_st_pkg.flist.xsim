@@ -14,6 +14,7 @@
 -i ${DV_UVME_RAL_ST_SRC_PATH}
 -i ${DV_UVME_RAL_ST_SRC_PATH}/comps
 -i ${DV_UVME_RAL_ST_SRC_PATH}/obj
+-i ${DV_UVME_RAL_ST_SRC_PATH}/reg
 -i ${DV_UVME_RAL_ST_SRC_PATH}/seq
 
 // Files

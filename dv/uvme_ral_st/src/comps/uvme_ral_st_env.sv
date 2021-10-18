@@ -28,6 +28,10 @@ class uvme_ral_st_env_c extends uvml_env_c;
    uvme_ral_st_cov_model_c  cov_model; ///< 
    uvme_ral_st_sqr_c        sequencer; ///< 
    
+   // Register Abstraction Layer
+   uvme_ral_st_reg_adapter_c  reg_adapter; ///< 
+   uvme_ral_st_reg_block_c    reg_block  ; ///< 
+   
    
    `uvm_component_utils_begin(uvme_ral_st_env_c)
       `uvm_field_object(cfg  , UVM_DEFAULT)
@@ -67,6 +71,11 @@ class uvme_ral_st_env_c extends uvml_env_c;
    extern function void assign_cntxt();
    
    /**
+    * Creates ral_adapter which translates to/from ral to axil_agent.
+    */
+   extern virtual function void create_ral_adapter();
+   
+   /**
     * Creates additional (non-agent) environment components (and objects).
     */
    extern function void create_env_components();
@@ -80,6 +89,11 @@ class uvme_ral_st_env_c extends uvml_env_c;
     * Creates environment's coverage model.
     */
    extern function void create_cov_model();
+   
+   /**
+    * Connects RAL to provisioning agent (axil_agent).
+    */
+   extern virtual function void connect_reg_block();
    
    /**
     * Connects environment coverage model to agents/scoreboards/predictor.
@@ -121,6 +135,7 @@ function void uvme_ral_st_env_c::build_phase(uvm_phase phase);
       
       if (cfg.is_active) begin
          create_sequencer();
+         create_ral_adapter();
       end
       
       if (cfg.cov_model_enabled) begin
@@ -136,6 +151,7 @@ function void uvme_ral_st_env_c::connect_phase(uvm_phase phase);
    super.connect_phase(phase);
    
    if (cfg.enabled) begin
+      connect_reg_block();
       if (cfg.cov_model_enabled) begin
          connect_coverage_model();
       end
@@ -199,9 +215,7 @@ endfunction: connect_reg_block
 
 function void uvme_ral_st_env_c::connect_coverage_model();
    
-   /*abc_agent.drv_ap.connect(cov_model.abc_seq_item_export);
-   abc_agent.mon_ap.connect(cov_model.abc_mon_trn_export );
-   def_agent.mon_ap.connect(cov_model.def_mon_trn_export );*/
+   sequencer.ap.connect(cov_model.seq_item_export);
    
 endfunction: connect_coverage_model
 

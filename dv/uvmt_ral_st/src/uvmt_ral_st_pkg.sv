@@ -25,7 +25,7 @@ timeunit       1ns;
 timeprecision  1ps;
 
 // Interface(s)
-`include "uvmt_ral_clknrst_gen_if.sv"
+`include "uvmt_ral_st_clknrst_gen_if.sv"
 
 
 /**
@@ -33,9 +33,11 @@ timeprecision  1ps;
  */
 package uvmt_ral_st_pkg;
    
-   import uvm_pkg      ::*;
-   import uvml_pkg     ::*;
-   import uvml_logs_pkg::*;
+   import uvm_pkg        ::*;
+   import uvml_pkg       ::*;
+   import uvml_logs_pkg  ::*;
+   import uvml_ral_pkg   ::*;
+   import uvme_ral_st_pkg::*;
    
    // Constants / Structs / Enums
    `include "uvmt_ral_st_tdefs.sv"

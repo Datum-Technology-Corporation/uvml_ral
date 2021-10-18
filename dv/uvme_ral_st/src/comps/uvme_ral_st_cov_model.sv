@@ -21,19 +21,13 @@
 class uvme_ral_st_cov_model_c extends uvm_component;
    
    // Coverage targets
-   uvme_ral_st_cfg_c    cfg;
-   uvme_ral_st_cntxt_c  cntxt;
-   uvma_ral_seq_item_c  abc_seq_item;
-   uvma_ral_mon_trn_c   abc_mon_trn;
-   uvma_ral_mon_trn_c   def_mon_trn;
+   uvme_ral_st_cfg_c       cfg     ; ///< 
+   uvme_ral_st_cntxt_c     cntxt   ; ///< 
+   uvme_ral_st_seq_item_c  seq_item; ///< 
    
    // TLM
-   uvm_analysis_export  #(uvma_ral_seq_item_c)  abc_seq_item_export;
-   uvm_analysis_export  #(uvma_ral_mon_trn_c )  abc_mon_trn_export ;
-   uvm_analysis_export  #(uvma_ral_mon_trn_c )  def_mon_trn_export ;
-   uvm_tlm_analysis_fifo#(uvma_ral_seq_item_c)  abc_seq_item_fifo  ;
-   uvm_tlm_analysis_fifo#(uvma_ral_mon_trn_c )  abc_mon_trn_fifo   ;
-   uvm_tlm_analysis_fifo#(uvma_ral_mon_trn_c )  def_mon_trn_fifo   ;
+   uvm_analysis_export   #(uvme_ral_st_seq_item_c)  seq_item_export; ///< 
+   uvm_tlm_analysis_fifo #(uvme_ral_st_seq_item_c)  seq_item_fifo  ; ///< 
    
    
    `uvm_component_utils_begin(uvme_ral_st_cov_model_c)
@@ -54,23 +48,11 @@ class uvme_ral_st_cov_model_c extends uvm_component;
       //          xyz_cpt : coverpoint cntxt.xyz;
    endgroup : ral_st_cntxt_cg
    
-   covergroup ral_st_abc_seq_item_cg;
-      // TODO Implement ral_st_abc_seq_item_cg
-      //      Ex: abc_cpt : coverpoint abc_seq_item.abc;
-      //          xyz_cpt : coverpoint abc_seq_item.xyz;
-   endgroup : ral_st_abc_seq_item_cg
-   
-   covergroup ral_st_abc_mon_trn_cg;
-      // TODO Implement ral_st_abc_mon_trn_cg
-      //      Ex: abc_cpt : coverpoint abc_mon_trn.abc;
-      //          xyz_cpt : coverpoint abc_mon_trn.xyz;
-   endgroup : ral_st_abc_mon_trn_cg
-   
-   covergroup ral_st_def_mon_trn_cg;
-      // TODO Implement ral_st_def_mon_trn_cg
-      //      Ex: abc_cpt : coverpoint def_mon_trn.abc;
-      //          xyz_cpt : coverpoint def_mon_trn.xyz;
-   endgroup : ral_st_def_mon_trn_cg
+   covergroup ral_st_seq_item_cg;
+      // TODO Implement ral_st_seq_item_cg
+      //      Ex: abc_cpt : coverpoint seq_item.abc;
+      //          xyz_cpt : coverpoint seq_item.xyz;
+   endgroup : ral_st_seq_item_cg
    
    
    /**
@@ -104,24 +86,11 @@ class uvme_ral_st_cov_model_c extends uvm_component;
    extern function void sample_cntxt();
    
    /**
-    * TODO Describe uvme_ral_st_cov_model_c::sample_abc_seq_item()
+    * TODO Describe uvme_ral_st_cov_model_c::sample_seq_item()
     */
-   extern function void sample_abc_seq_item();
-   
-   /**
-    * TODO Describe uvme_ral_st_cov_model_c::sample_abc_mon_trn()
-    */
-   extern function void sample_abc_mon_trn();
-   
-   /**
-    * TODO Describe uvme_ral_st_cov_model_c::sample_def_mon_trn()
-    */
-   extern function void sample_def_mon_trn();
+   extern function void sample_seq_item();
    
 endclass : uvme_ral_st_cov_model_c
-
-
-`pragma protect begin
 
 
 function uvme_ral_st_cov_model_c::new(string name="uvme_ral_st_cov_model", uvm_component parent=null);
@@ -136,22 +105,18 @@ function void uvme_ral_st_cov_model_c::build_phase(uvm_phase phase);
    super.build_phase(phase);
    
    void'(uvm_config_db#(uvme_ral_st_cfg_c)::get(this, "", "cfg", cfg));
-   if (!cfg) begin
+   if (cfg == null) begin
       `uvm_fatal("CFG", "Configuration handle is null")
    end
    
    void'(uvm_config_db#(uvme_ral_st_cntxt_c)::get(this, "", "cntxt", cntxt));
-   if (!cntxt) begin
+   if (cntxt == null) begin
       `uvm_fatal("CNTXT", "Context handle is null")
    end
    
    // Build TLM objects
-   abc_seq_item_export = new("abc_seq_item_export", this);
-   abc_mon_trn_export  = new("abc_mon_trn_export" , this);
-   def_mon_trn_export  = new("def_mon_trn_export" , this);
-   abc_seq_item_fifo   = new("abc_seq_item_fifo"  , this);
-   abc_mon_trn_fifo    = new("abc_mon_trn_fifo"   , this);
-   def_mon_trn_fifo    = new("def_mon_trn_fifo"   , this);
+   seq_item_export = new("seq_item_export", this);
+   seq_item_fifo   = new("seq_item_fifo"  , this);
    
 endfunction : build_phase
 
@@ -161,9 +126,7 @@ function void uvme_ral_st_cov_model_c::connect_phase(uvm_phase phase);
    super.connect_phase(phase);
    
    // Connect TLM objects
-   abc_seq_item_export.connect(abc_seq_item_fifo.analysis_export);
-   abc_mon_trn_export .connect(abc_mon_trn_fifo .analysis_export);
-   def_mon_trn_export .connect(def_mon_trn_fifo .analysis_export);
+   seq_item_export.connect(seq_item_fifo.analysis_export);
    
 endfunction : connect_phase
 
@@ -171,45 +134,33 @@ endfunction : connect_phase
 task uvme_ral_st_cov_model_c::run_phase(uvm_phase phase);
    
    super.run_phase(phase);
-  
-  fork
-    // Configuration
-    forever begin
-      cntxt.sample_cfg_e.wait_trigger();
-      sample_cfg();
-    end
-    
-    // Context
-    forever begin
-      cntxt.sample_cntxt_e.wait_trigger();
-      sample_cntxt();
-    end
-    
-    // abc sequence item coverage
-    forever begin
-       abc_seq_item_fifo.get(abc_seq_item);
-       sample_abc_seq_item();
-    end
-    
-    // abc monitored transaction coverage
-    forever begin
-       abc_mon_trn_fifo.get(abc_mon_trn);
-       sample_abc_mon_trn();
-    end
-    
-    // def monitored transaction coverage
-    forever begin
-       def_mon_trn_fifo.get(def_mon_trn);
-       sample_def_mon_trn();
-    end
-  join_none
+   
+   fork
+      // Configuration
+      forever begin
+         cntxt.sample_cfg_e.wait_trigger();
+         sample_cfg();
+      end
+      
+      // Context
+      forever begin
+         cntxt.sample_cntxt_e.wait_trigger();
+         sample_cntxt();
+      end
+      
+      // sequence item coverage
+      forever begin
+         seq_item_fifo.get(seq_item);
+         sample_seq_item();
+      end
+   join_none
    
 endtask : run_phase
 
 
 function void uvme_ral_st_cov_model_c::sample_cfg();
    
-  ral_st_cfg_cg.sample();
+   ral_st_cfg_cg.sample();
    
 endfunction : sample_cfg
 
@@ -221,28 +172,11 @@ function void uvme_ral_st_cov_model_c::sample_cntxt();
 endfunction : sample_cntxt
 
 
-function void uvme_ral_st_cov_model_c::sample_abc_seq_item();
+function void uvme_ral_st_cov_model_c::sample_seq_item();
    
-   ral_st_abc_seq_item_cg.sample();
+   ral_st_seq_item_cg.sample();
    
-endfunction : sample_abc_seq_item
-
-
-function void uvme_ral_st_cov_model_c::sample_abc_mon_trn();
-   
-   ral_st_abc_mon_trn_cg.sample();
-   
-endfunction : sample_abc_mon_trn
-
-
-function void uvme_ral_st_cov_model_c::sample_def_mon_trn();
-   
-   ral_st_def_mon_trn_cg.sample();
-   
-endfunction : sample_def_mon_trn
-
-
-`pragma protect end
+endfunction : sample_seq_item
 
 
 `endif // __UVME_RAL_ST_COV_MODEL_SV__

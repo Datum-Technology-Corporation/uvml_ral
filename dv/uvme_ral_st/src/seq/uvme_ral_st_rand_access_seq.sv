@@ -20,17 +20,17 @@
 class uvme_ral_st_rand_access_seq_c extends uvme_ral_st_base_seq_c;
    
    // Fields
-   rand int unsigned  num_reg_access; ///< 
+   rand int unsigned  num_accesses; ///< 
    
    
    `uvm_object_utils_begin(uvme_ral_st_rand_access_seq_c)
-      `uvm_field_int(num_reg_access, UVM_DEFAULT + UVM_DEC)
+      `uvm_field_int(num_accesses, UVM_DEFAULT + UVM_DEC)
    `uvm_object_utils_end
    
    
    constraint limits_cons {
-      num_reg_access > 0;
-      num_reg_access <= 100;
+      num_accesses > 0;
+      num_accesses <= 100;
    }
    
    
@@ -64,9 +64,9 @@ task uvme_ral_st_rand_access_seq_c::body();
    cfg.reg_block.get_registers(my_regs);
    my_regs.shuffle();
    
-   for (int unsigned ii=0; ii<num_reg_access; ii++) begin
+   for (int unsigned ii=0; ii<num_accesses; ii++) begin
       current_reg = my_regs.pop_front();
-      `uvm_info("TRAFFIC_VSEQ", $sformatf("Performing access #%0d of %0d:\n%s", ii+1, num_reg_access, current_reg.sprint()), UVM_LOW)
+      `uvm_info("TRAFFIC_VSEQ", $sformatf("Performing access #%0d of %0d:\n%s", ii+1, num_accesses, current_reg.sprint()), UVM_LOW)
       randcase
          2: begin
             current_reg.read(status, value);

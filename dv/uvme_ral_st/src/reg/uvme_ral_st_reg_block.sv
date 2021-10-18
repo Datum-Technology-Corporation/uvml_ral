@@ -17,7 +17,7 @@
 /**
  * TODO Describe uvme_ral_st_reg_block_c
  */
-class uvme_ral_st_reg_block_c extends uvml_reg_block_c;
+class uvme_ral_st_reg_block_c extends uvml_ral_reg_block_c;
    
    uvme_ral_st_cfg_c    cfg  ; ///< 
    uvme_ral_st_cntxt_c  cntxt; ///< 
@@ -39,16 +39,6 @@ class uvme_ral_st_reg_block_c extends uvml_reg_block_c;
     * Default constructor.
     */
    extern function new(string name="uvme_ral_st_reg_block", int has_coverage=UVM_NO_COVERAGE);
-   
-   /**
-    * TODO Describe uvme_ral_st_reg_block::build().
-    */
-   extern virtual function void build();
-   
-   /**
-    * TODO Describe uvme_ral_st_reg_block::connect().
-    */
-   extern virtual function void connect();
    
    /**
     * Creates sub-block(s).
@@ -78,23 +68,6 @@ function uvme_ral_st_reg_block_c::new(string name="uvme_ral_st_reg_block", int h
    super.new(name, has_coverage);
    
 endfunction : new
-
-
-function void uvme_ral_st_reg_block_c::build();
-   
-   create_blocks();
-   create_regs  ();
-   
-endfunction : build
-
-
-function void uvme_ral_st_reg_block_c::connect();
-   
-   create_reg_map ();
-   add_regs_to_map();
-   lock_model     ();
-   
-endfunction : connect
 
 
 function void uvme_ral_st_reg_block_c::create_blocks();

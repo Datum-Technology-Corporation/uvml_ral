@@ -16,7 +16,7 @@
 -f ${DV_UVML_LOGS_SRC_PATH}/uvml_logs_pkg.flist.xsim
 
 // Target library
--f ${DV_UVMA_RAL_SRC_PATH}/uvma_ral_pkg.flist.xsim
+-f ${DV_UVML_RAL_SRC_PATH}/uvml_ral_pkg.flist.xsim
 -f ${DV_UVME_RAL_ST_SRC_PATH}/uvme_ral_st_pkg.flist.xsim
 
 // Register Abstraction Layer test bench Directories

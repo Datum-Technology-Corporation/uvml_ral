@@ -29,7 +29,8 @@ class uvmt_ral_st_base_test_c extends uvml_test_c;
    uvml_logs_rs_text_c          rs       ; ///< 
    
    // Components
-   
+   uvme_ral_st_env_c  env      ; ///< 
+   uvme_ral_st_sqr_c  sequencer; ///< 
    
    
    `uvm_component_utils_begin(uvmt_ral_st_base_test_c)
@@ -185,7 +186,7 @@ endfunction : build_phase
 function void uvmt_ral_st_base_test_c::connect_phase(uvm_phase phase);
    
    super.connect_phase(phase);
-   vsequencer = env.vsequencer;
+   sequencer = env.sequencer;
    
 endfunction : connect_phase
 
@@ -292,6 +293,13 @@ function void uvmt_ral_st_base_test_c::assign_cntxt();
    uvm_config_db#(uvme_ral_st_cntxt_c)::set(this, "env", "cntxt", env_cntxt);
    
 endfunction : assign_cntxt
+
+
+function void uvmt_ral_st_base_test_c::create_env();
+   
+   env = uvme_ral_st_env_c::type_id::create("env", this);
+   
+endfunction : create_env
 
 
 function void uvmt_ral_st_base_test_c::create_components();

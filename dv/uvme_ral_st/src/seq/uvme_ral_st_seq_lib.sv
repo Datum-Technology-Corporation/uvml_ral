@@ -14,7 +14,7 @@
 `define __UVME_LOGS_ST_SEQ_LIB_SV__
 
 
-`include "uvme_ral_st_rand_access_vseq.sv"
+`include "uvme_ral_st_rand_access_seq.sv"
 
 
 /**
