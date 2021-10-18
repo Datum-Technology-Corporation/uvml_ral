@@ -5,6 +5,8 @@ The Moore.io UVM Register Abstraction Layer Extensions Library is an excellent b
 ## IP
 * DV
 > * uvml_ral
+> * uvme_ral_st
+> * uvmt_ral_st
 * RTL
 * Tools
 

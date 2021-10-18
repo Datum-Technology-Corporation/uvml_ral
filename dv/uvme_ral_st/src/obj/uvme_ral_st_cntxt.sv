@@ -10,56 +10,54 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-`ifndef __UVML_RAL_REG_ADAPTER_SV__
-`define __UVML_RAL_REG_ADAPTER_SV__
+`ifndef __UVME_RAL_ST_CNTXT_SV__
+`define __UVME_RAL_ST_CNTXT_SV__
 
 
 /**
- * Object that converts between abstract register operations (UVM) and
- * RAL operations.
+ * Object encapsulating all state variables for the Moore.io Register Abstraction Layer UVM Extensions Self-Testing
+ * Environment (uvme_ral_st_env_c) components.
  */
-class uvml_ral_reg_adapter_c extends uvm_reg_adapter;
+class uvme_ral_st_cntxt_c extends uvml_cntxt_c;
    
-   `uvm_object_utils(uvml_ral_reg_adapter_c)
+   // Events
+   uvm_event  sample_cfg_e  ;
+   uvm_event  sample_cntxt_e;
    
    
-   /**
-    * Default constructor
-    */
-   extern function new(string name="uvml_ral_reg_adapter");
+   `uvm_object_utils_begin(uvme_ral_st_cntxt_c)
+      `uvm_field_event(sample_cfg_e  , UVM_DEFAULT)
+      `uvm_field_event(sample_cntxt_e, UVM_DEFAULT)
+   `uvm_object_utils_end
    
-   /**
-    * Converts from UVM register operation to Advanced Peripheral Bus.
-    */
-   extern virtual function uvm_sequence_item reg2bus(const ref uvm_reg_bus_op rw);
    
    /**
-    * Converts from Advanced Peripheral Bus to UVM register operation.
+    * Builds events and sub-context objects.
     */
-   extern virtual function void bus2reg(uvm_sequence_item bus_item, ref uvm_reg_bus_op rw);
+   extern function new(string name="uvme_ral_st_cntxt");
    
-endclass : uvml_ral_reg_adapter_c
+   /**
+    * TODO Describe uvme_ral_st_cntxt_c::reset()
+    */
+   extern function void reset();
+   
+endclass : uvme_ral_st_cntxt_c
 
 
-function uvml_ral_reg_adapter_c::new(string name="uvml_ral_reg_adapter");
+function uvme_ral_st_cntxt_c::new(string name="uvme_ral_st_cntxt");
    
    super.new(name);
+   sample_cfg_e   = new("sample_cfg_e"  );
+   sample_cntxt_e = new("sample_cntxt_e");
    
 endfunction : new
 
 
-function uvm_sequence_item uvml_ral_reg_adapter_c::reg2bus(const ref uvm_reg_bus_op rw);
+function void uvme_ral_st_cntxt_c::reset();
    
-   // Empty
    
-endfunction : reg2bus
+   
+endfunction : reset
 
 
-function void uvml_ral_reg_adapter_c::bus2reg(uvm_sequence_item bus_item, ref uvm_reg_bus_op rw);
-   
-   // Empty
-   
-endfunction : bus2reg
-
-
-`endif // __UVML_RAL_REG_ADAPTER_SV__
+`endif // __UVME_RAL_ST_CNTXT_SV__
