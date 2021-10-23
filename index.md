@@ -6,7 +6,7 @@
 ----------------
 
 ## About
-The Moore.io UVM Register Abstraction Layer Extensions Library is an excellent base on which to build your register models.  This project consists of the library itself (`uvml_ral_pkg`), the self-test UVM environment (`uvme_ral_st`) and the self-test UVM Test bench (`uvmt_ral_st`).
+The [Moore.io](www.mooreio.com) UVM Register Abstraction Layer Extensions Library is an excellent base on which to build your register models.  This project consists of the library itself (`uvml_ral_pkg`), the self-test UVM environment (`uvme_ral_st`) and the self-test UVM Test bench (`uvmt_ral_st`).
 
 
 ## Downloads
