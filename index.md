@@ -9,6 +9,12 @@
 The [Moore.io](https://www.mooreio.com) UVM Register Abstraction Layer Extensions Library is an excellent base on which to build your register models.  This project consists of the library itself (`uvml_ral_pkg`), the self-test UVM environment (`uvme_ral_st`) and the self-test UVM Test bench (`uvmt_ral_st`).
 
 
+## Management
+
+| **[Issues](https://github.com/Datum-Technology-Corporation/uvml_ral/issues)** | **[Discussions](https://github.com/Datum-Technology-Corporation/uvml_ral/discussions)** |
+| **[Sub-Projects](https://github.com/Datum-Technology-Corporation/uvml_ral/projects)** | **[Wiki](https://github.com/Datum-Technology-Corporation/uvml_ral/wiki)** |
+
+
 ## Downloads
 
 | Latest Release (v1.0 Beta 0) | Stable (Nightly) | Stable (Weekly) |
@@ -17,12 +23,6 @@ The [Moore.io](https://www.mooreio.com) UVM Register Abstraction Layer Extension
 | [Documentation](TODO) | [Documentation](TODO) | [Documentation](TODO) |
 
 > **[View All Releases](TODO)**
-
-
-## Management
-
-| **[Issues](https://github.com/Datum-Technology-Corporation/uvml_ral/issues)** | **[Discussions](https://github.com/Datum-Technology-Corporation/uvml_ral/discussions)** |
-| **[Projects](https://github.com/Datum-Technology-Corporation/uvml_ral/projects)** | **[Wiki](https://github.com/Datum-Technology-Corporation/uvml_ral/wiki)** |
 
 
 ## Metrics
