@@ -22,7 +22,7 @@ The [Moore.io](https://www.mooreio.com) UVM Register Abstraction Layer Extension
 | [Source Code](https://mooreio.com/packages/uvml_ral.tgz) | Source Code (Coming Soon) | Source Code (Coming Soon) |
 | Documentation (Coming Soon) | Documentation (Coming Soon) | Documentation (Coming Soon) |
 
-> **[View All Releases](TODO)**
+> **[View All Releases](releases.md)**
 
 
 ## Metrics
