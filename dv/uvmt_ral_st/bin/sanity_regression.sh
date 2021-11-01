@@ -14,7 +14,7 @@
 # Launched from uvml project sim dir
 ./setup_project.py
 source ./setup_terminal.sh
-../tools/.imports/mio/mio.py cpel uvmt_ral_st
-../tools/.imports/mio/mio.py sim uvmt_ral_st -t front_door_access -s 1 -c
-../tools/.imports/mio/mio.py results uvmt_ral_st results
-#../tools/.imports/mio/mio.py cov uvmt_ral_st
+../tools/.imports/mio/src/mio.py cpel uvmt_ral_st
+../tools/.imports/mio/src/mio.py sim uvmt_ral_st -t front_door_access -s 1 -c
+../tools/.imports/mio/src/mio.py results uvmt_ral_st results
+#../tools/.imports/mio/src/mio.py cov uvmt_ral_st
