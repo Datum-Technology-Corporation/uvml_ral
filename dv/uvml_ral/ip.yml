@@ -1,0 +1,44 @@
+ip:
+  name: "uvml_ral"
+  version: "1.0.0 Beta 0"
+  full-name: "Moore.io UVM Register Abstraction Layer Extensions"
+  type: "DV"
+  sub-type: "UVM Library"
+  sub-sub-type: ""
+  description: >
+    
+  home-page: "https://datum-technology-corporation.github.io/uvml_ral/"
+  repo-uri: "https://github.com/Datum-Technology-Corporation/uvml_ral.git"
+  bugs: "https://github.com/Datum-Technology-Corporation/uvml_ral/issues"
+  aliases: []
+  logo: ""
+  block-diagram: ""
+  languages: ["sv"]
+  simulators-supported:
+    - { name: "vivado", version: "2021.1" }
+  tags: []
+  copyright-holders: ["Datum Technology Corporation"]
+  licenses: ["SHL-2.1"]
+
+structure:
+   scripts-paths : [ "/bin"      ]
+   docs-paths    : [ "/docs"     ]
+   examples-paths: [ "/examples" ]
+   src-paths     : [ "/src"      ]
+
+dependencies:
+  - { type: "DV", name: "uvm"      , repo-uri: "https://github.com/Datum-Technology-Corporation/uvm.git"      , repo-branch: "main", repo-path: "dv/uvm"       }
+  - { type: "DV", name: "uvml"     , repo-uri: "https://github.com/Datum-Technology-Corporation/uvml.git"     , repo-branch: "main", repo-path: "dv/uvml"      }
+  - { type: "DV", name: "uvml_logs", repo-uri: "https://github.com/Datum-Technology-Corporation/uvml_logs.git", repo-branch: "main", repo-path: "dv/uvml_logs" }
+
+hdl-src:
+  directories: [".", "comps", "obj", "reg"]
+  tests-name-template: ""
+  flists:
+    metrics : [ "src/uvml_ral_pkg.flist"      ]
+    riviera : [ "src/uvml_ral_pkg.flist"      ]
+    questa  : [ "src/uvml_ral_pkg.flist"      ]
+    vcs     : [ "src/uvml_ral_pkg.flist"      ]
+    vivado  : [ "src/uvml_ral_pkg.flist.xsim" ]
+    xcelium : [ "src/uvml_ral_pkg.flist"      ]
+
