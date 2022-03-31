@@ -16,10 +16,10 @@
 
 // Pre-processor macros
 `include "uvm_macros.svh"
-`include "uvml_macros.sv"
-`include "uvml_logs_macros.sv"
-`include "uvml_ral_macros.sv"
-`include "uvme_ral_st_macros.sv"
+`include "uvml_macros.svh"
+`include "uvml_logs_macros.svh"
+`include "uvml_ral_macros.svh"
+`include "uvme_ral_st_macros.svh"
 
 // Interface(s)
 
@@ -29,37 +29,37 @@
  * Abstraction Layer UVM Extensions VIP.
  */
 package uvme_ral_st_pkg;
-   
+
    import uvm_pkg      ::*;
    import uvml_pkg     ::*;
    import uvml_logs_pkg::*;
    import uvml_ral_pkg ::*;
-   
+
    // Constants / Structs / Enums
    `include "uvme_ral_st_tdefs.sv"
    `include "uvme_ral_st_constants.sv"
-   
+
    // Register Abstraction Layer
    `include "uvme_ral_st_rw_reg.sv"
    `include "uvme_ral_st_ro_reg.sv"
    `include "uvme_ral_st_reg_block.sv"
-   
+
    // Objects
    `include "uvme_ral_st_cfg.sv"
    `include "uvme_ral_st_cntxt.sv"
    `include "uvme_ral_st_seq_item.sv"
    `include "uvme_ral_st_reg_adapter.sv"
-   
+
    // Environment components
    `include "uvme_ral_st_cov_model.sv"
    `include "uvme_ral_st_seq_item_logger.sv"
    `include "uvme_ral_st_sqr.sv"
    `include "uvme_ral_st_env.sv"
-   
+
    // Sequences
    `include "uvme_ral_st_base_seq.sv"
    `include "uvme_ral_st_seq_lib.sv"
-   
+
 endpackage : uvme_ral_st_pkg
 
 
