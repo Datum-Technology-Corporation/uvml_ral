@@ -26,6 +26,7 @@ package uvml_ral_pkg;
    `include "uvml_ral_constants.sv"
 
    // Objects
+   `include "uvml_ral_mem_model.sv"
    `include "uvml_ral_reg_field.sv"
    `include "uvml_ral_reg.sv"
    `include "uvml_ral_reg_block.sv"
