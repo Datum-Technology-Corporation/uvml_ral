@@ -4,19 +4,19 @@
 
 
 // Libraries
-//-f ${DV_UVM_SRC_PATH}/uvm_pkg.flist.xsim
--f ${DV_UVML_SRC_PATH}/uvml_pkg.flist.xsim
--f ${DV_UVML_LOGS_SRC_PATH}/uvml_logs_pkg.flist.xsim
+//-f ${UVM_SRC_PATH}/uvm_pkg.flist.xsim
+-f ${UVML_SRC_PATH}/uvml_pkg.flist.xsim
+-f ${UVML_LOGS_SRC_PATH}/uvml_logs_pkg.flist.xsim
 
 // Target library
--f ${DV_UVML_RAL_SRC_PATH}/uvml_ral_pkg.flist.xsim
--f ${DV_UVME_RAL_ST_SRC_PATH}/uvme_ral_st_pkg.flist.xsim
+-f ${UVML_RAL_SRC_PATH}/uvml_ral_pkg.flist.xsim
+-f ${UVME_RAL_ST_SRC_PATH}/uvme_ral_st_pkg.flist.xsim
 
 // Register Abstraction Layer test bench Directories
--i ${DV_UVMT_RAL_ST_SRC_PATH}
--i ${DV_UVMT_RAL_ST_SRC_PATH}/seq
--i ${DV_UVMT_RAL_ST_SRC_PATH}/tb
--i ${DV_UVMT_RAL_ST_SRC_PATH}/tests
+-i ${UVMT_RAL_ST_SRC_PATH}
+-i ${UVMT_RAL_ST_SRC_PATH}/seq
+-i ${UVMT_RAL_ST_SRC_PATH}/tb
+-i ${UVMT_RAL_ST_SRC_PATH}/tests
 
 // Register Abstraction Layer tests (includes constants/macros/types meant for test bench)
-${DV_UVMT_RAL_ST_SRC_PATH}/uvmt_ral_st_pkg.sv
+${UVMT_RAL_ST_SRC_PATH}/uvmt_ral_st_pkg.sv

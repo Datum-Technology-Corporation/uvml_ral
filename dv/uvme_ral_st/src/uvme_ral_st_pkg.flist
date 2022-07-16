@@ -1,14 +1,14 @@
-// Copyright 2021 Datum Technology Corporation
+// Copyright 2021-2022 Datum Technology Corporation
 // SPDX-License-Identifier: Apache-2.0 WITH SHL-2.1
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 // Directories
-+incdir+${DV_UVME_RAL_ST_SRC_PATH}
-+incdir+${DV_UVME_RAL_ST_SRC_PATH}/comps
-+incdir+${DV_UVME_RAL_ST_SRC_PATH}/obj
-+incdir+${DV_UVME_RAL_ST_SRC_PATH}/reg
-+incdir+${DV_UVME_RAL_ST_SRC_PATH}/seq
++incdir+${UVME_RAL_ST_SRC_PATH}
++incdir+${UVME_RAL_ST_SRC_PATH}/comps
++incdir+${UVME_RAL_ST_SRC_PATH}/obj
++incdir+${UVME_RAL_ST_SRC_PATH}/reg
++incdir+${UVME_RAL_ST_SRC_PATH}/seq
 
 // Files
-${DV_UVME_RAL_ST_SRC_PATH}/uvme_ral_st_pkg.sv
+${UVME_RAL_ST_SRC_PATH}/uvme_ral_st_pkg.sv

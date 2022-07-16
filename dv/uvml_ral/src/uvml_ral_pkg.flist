@@ -4,9 +4,9 @@
 
 
 // Directories
-+incdir+${DV_UVML_RAL_SRC_PATH}
-+incdir+${DV_UVML_RAL_SRC_PATH}/obj
-+incdir+${DV_UVML_RAL_SRC_PATH}/reg
++incdir+${UVML_RAL_SRC_PATH}
++incdir+${UVML_RAL_SRC_PATH}/obj
++incdir+${UVML_RAL_SRC_PATH}/reg
 
 // Files
-${DV_UVML_RAL_SRC_PATH}/uvml_ral_pkg.sv
+${UVML_RAL_SRC_PATH}/uvml_ral_pkg.sv
