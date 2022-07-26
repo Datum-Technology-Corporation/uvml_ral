@@ -6,7 +6,7 @@
 
 
 # Launched from uvml_ral project sim dir
-mio cpel    uvmt_ral_st -CE
+mio sim     uvmt_ral_st -CE
 mio sim     uvmt_ral_st -S -t front_door_access -s 1 -c
 mio results uvmt_ral_st results
 mio cov     uvmt_ral_st
